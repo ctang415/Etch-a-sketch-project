@@ -1,3 +1,11 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+}
+
 .div {
-    border: solid;
+    border: 1px solid;
+    background: white;
+    padding-top: 100%;
 }
