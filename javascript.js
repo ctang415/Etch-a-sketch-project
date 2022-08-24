@@ -20,3 +20,12 @@ function getRandomColor() {
     let b = Math.floor(Math.random() * 256);
     return `rgb(${r}, ${g}, ${b})`;
 }
+
+const button = document.createElement('button');
+button.textContent = 'Change Size'
+button.addEventListener('click', function() {
+    let ask = prompt('How many squares?')
+    return ask;
+});
+button.classList.add('button');
+container.appendChild(button);
