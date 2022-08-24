@@ -10,3 +10,7 @@
     background: white;
     padding-top: 100%;
 }
+
+div:hover {
+    background-color: black;
+}
