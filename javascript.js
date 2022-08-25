@@ -1,18 +1,41 @@
 const container = document.querySelector('.container');
 
-function createSquare() {
-    for (let i = 0; i < 256; i++) {
-        const div = document.createElement('div');
-        div.classList.add('div');
+
+const button = document.querySelector('.button');
+
+button.addEventListener('click', function() {
+    let ask = prompt('Number of squares? (Between 1-100)', 1)
+    if (ask <= 100 && ask >= 1) {
+        clearGrid();
+        createGrid(ask, ask);
+    }
+    else {
+        clearGrid();
+        createGrid(16,16);
+        alert('Please return a number between 1-100.');
+    }
+});
+
+function clearGrid() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
+
+
+function createGrid(col, row) {
+    container.style.setProperty("--grid-columns", col);
+    container.style.setProperty("--grid-rows", row);
+    for (let i = 0; i < (col * row); i++){
+        let div = document.createElement('div');
+        container.appendChild(div).className = "div";
         div.addEventListener('mouseover', function() {
             div.style.backgroundColor = getRandomColor();
-        })
-        container.appendChild(div);
+    })
     }
 };
-createSquare();
 
-
+createGrid(16,16);
 
 function getRandomColor() {
     let r = Math.floor(Math.random() * 256);
@@ -21,11 +44,3 @@ function getRandomColor() {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-const button = document.createElement('button');
-button.textContent = 'Change Size'
-button.addEventListener('click', function() {
-    let ask = prompt('How many squares?')
-    return ask;
-});
-button.classList.add('button');
-container.appendChild(button);
