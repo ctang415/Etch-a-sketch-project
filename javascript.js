@@ -17,8 +17,8 @@ button.addEventListener('click', function() {
 });
 
 function clearGrid() {
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
+    while (container.lastChild) {
+        container.removeChild(container.lastChild);
     }
 }
 
